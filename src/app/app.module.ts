@@ -104,6 +104,8 @@ import { Patch7Component } from './patches/patch7/patch7.component';
 import { CopyrightComponent } from './body/copyright/copyright.component';
 import { TermsAndConditionComponent } from './terms-and-condition/terms-and-condition.component';
 import { Patch8Component } from './patches/patch8/patch8.component';
+import { QuickNotesComponent } from './body/quick-notes/quick-notes.component';
+import { IonicModule } from '@ionic/angular';
 
 @NgModule({
   declarations: [
@@ -195,6 +197,7 @@ import { Patch8Component } from './patches/patch8/patch8.component';
     Patch7Component,
     CopyrightComponent,
     TermsAndConditionComponent,
+    QuickNotesComponent,
   ],
   imports: [
     BrowserModule,
@@ -212,7 +215,8 @@ import { Patch8Component } from './patches/patch8/patch8.component';
     MatPaginatorModule,
     MatIconModule,
     MatBadgeModule,
-    MatSortModule
+    MatSortModule,
+    IonicModule.forRoot()
   ],
   providers: [
     AuthService,

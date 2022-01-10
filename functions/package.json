@@ -10,14 +10,11 @@
     "logs": "firebase functions:log"
   },
   "engines": {
-    "node": "14"
+    "node": "16"
   },
   "main": "index.js",
   "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "fastify": "^3.25.0",
-    "firebase-admin": "^9.2.0",
+    "firebase-admin": "^9.8.0",
     "firebase-functions": "^3.14.1"
   },
   "devDependencies": {
