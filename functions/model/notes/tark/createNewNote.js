@@ -9,6 +9,7 @@
 // eslint-disable-next-line no-dupe-else-if
 
 const { setNote, getNote } = require("../lib");
+const { getUser } = require("../../users/lib");
 
 exports.createNewNote = function (request, response) {
     const title = request.body.data.Title;
@@ -17,8 +18,8 @@ exports.createNewNote = function (request, response) {
     let noteId;
     let status = 200;
 
-    const createNotePromise = getNote(uid).then((note) => {
-        const noteCount = team.noteCount + 1;
+    const createNotePromise = getUser(uid).then((note) => {
+        const noteCount = note.noteCount + 1;
         noteId = note.NoteId + noteCount.toString();
         setNote(uid, noteId, title, des);
     }).catch((error) => {
