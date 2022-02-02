@@ -86,3 +86,24 @@ export interface QuickNote {
     Status: string;
     Title: string;
 }
+
+export interface Social{
+    Uid: string;
+    CreationTime: string;
+    CreationDate: string;
+    post: string;
+    reach: number;
+    reactions: number;
+    comment: number;
+    PostId: string;
+
+}
+
+export interface Comment{
+
+    Uid: string;
+    CreationDate: string;
+    CreationTime: string;
+    content: string;
+    postId: string;
+} 

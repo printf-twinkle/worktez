@@ -74,4 +74,8 @@ export class HeaderComponent implements OnInit {
   tasksEvaluation() {
     this.router.navigate(['/TasksEvaluation']);
   }
+
+  socialPage() {
+    this.router.navigate(['/SocialPage']);
+  }
 }

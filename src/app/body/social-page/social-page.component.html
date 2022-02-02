@@ -1,0 +1,18 @@
+<div class="container-fluid row pt-5">
+    <div class="col col-md-5">
+            <div class="pb-4" style="margin-left: 9rem;">
+                <button class="btn btn-success" (click)="createPost()" data-toggle="modal" data-target="#createPost">
+                <mat-icon fontSet="material-icons-outlined" class="align-middle mr-3">
+                add_to_photos
+                </mat-icon>Create post</button>
+            </div>
+            <div>
+                <app-posts></app-posts>
+            </div>
+        <!-- posts -->
+    </div>
+    <div class="col col-md-5">
+        <app-whats-new></app-whats-new>
+        <!-- whatsnew -->
+    </div>
+</div>
