@@ -46,6 +46,7 @@ export class CreateNewOrganizationComponent implements OnInit {
   basePath: string
   fileName: string
   percentage: number = 0;
+  editOrgDpEnabled: boolean = false;
 
   constructor(public validationService: ValidationService, public functions: AngularFireFunctions, public errorHandlerService: ErrorHandlerService, private fireStorage: AngularFireStorage, private location: Location, private authService: AuthService, public router: Router,public uploadService: FileUploadService,public backendService: BackendService) { }
   ngOnInit(): void {
@@ -109,5 +110,9 @@ export class CreateNewOrganizationComponent implements OnInit {
 
   close() {
     this.location.back();
+  }
+
+  editOrgDp() {
+    this.editOrgDpEnabled = true;
   }
 }

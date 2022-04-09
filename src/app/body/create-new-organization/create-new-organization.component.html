@@ -20,7 +20,8 @@
             <div class="pl-lg-0" id="navbarTexts">
                 <ul class="nav navbar-nav ml-auto align-items-center">
                     <li class=" active py-1 justify-content-between">
-                        <span type="button" class="material-icons" data-bs-toggle="tooltip" data-bs-placement="top" title="close" (click)="close()">close</span>
+                        <span type="button" class="material-icons" data-bs-toggle="tooltip" data-bs-placement="top"
+                            title="close" (click)="close()">close</span>
                     </li>
                 </ul>
             </div>
@@ -32,44 +33,66 @@
                 <div class="col-md-8">
                     <div class="form-group row pt-2">
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" placeholder="Organization Name*" [(ngModel)]="orgName" [ngModelOptions]="{standalone: true}">
+                            <input type="text" class="form-control" placeholder="Organization Name*"
+                                [(ngModel)]="orgName" [ngModelOptions]="{standalone: true}">
                         </div>
                     </div>
                     <div class="form-group row pt-2">
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" placeholder="Organization Domain*" [(ngModel)]="orgDomain" [ngModelOptions]="{standalone: true}">
+                            <input type="text" class="form-control" placeholder="Organization Domain*"
+                                [(ngModel)]="orgDomain" [ngModelOptions]="{standalone: true}">
                         </div>
                     </div>
                     <div class="form-group row pt-2">
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" placeholder="Organization Email*" [(ngModel)]="orgEmail" [ngModelOptions]="{standalone: true}">
+                            <input type="text" class="form-control" placeholder="Organization Email*"
+                                [(ngModel)]="orgEmail" [ngModelOptions]="{standalone: true}">
                         </div>
                     </div>
                 </div>
                 <div class="col-md-2">
                     <div class="form-group col p-2" id="uploadButtonContainer">
                         <ng-container *ngIf="!logoUploaded; else uploadedImg">
-                            <app-upload-logo  (uploadedLogo)="uploadedLogo($event)"></app-upload-logo>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-12 p-2">
+                                        <img [src]="imgInp" id="img" style="height: 400px;" #img crossorigin>
+                                    </div>
+                                    <span type="button" class="m-3" data-toggle="modal"
+                                    data-target="#profilePicModal" data-whatever="@mdo" (click)="editOrgDp()">
+                                    <button class="btn btn-primary col-md-12">Add Organiation Logo</button>
+                                </span>
+                                </div>
+                            </div>
                         </ng-container>
                         <ng-template #uploadedImg>
-                            <span id="files" class="material-icons">image</span>
-                            <label>{{fileName}}</label>
-                            <span class="material-icons menu" id="delete" (click)="delete()">delete</span>
+                            <img class="mt-3 ml-3 rounded-circle" src={{photoURL}}
+                                onerror="this.src = '../../assets/defaultavatar.jpg' " alt="{{displayName}}" width="100"
+                                height="100" style=" border-radius: 50%;">
+                            <span type="button" class="m-3" data-toggle="modal"
+                                data-target="#profilePicModal" data-whatever="@mdo" (click)="editOrgDp()">
+                                <span class="material-icons" style="font-size: 20px;">edit</span>
+                            </span>
                         </ng-template>
                     </div>
                 </div>
             </div>
             <div class="form-group row">
                 <div class="col-sm-10">
-                    <textarea type="text" class="form-control" placeholder="Enter Organization Description*" rows="3" [(ngModel)]="orgDescription" [ngModelOptions]="{standalone: true}"></textarea>
+                    <textarea type="text" class="form-control" placeholder="Enter Organization Description*" rows="3"
+                        [(ngModel)]="orgDescription" [ngModelOptions]="{standalone: true}"></textarea>
                 </div>
             </div>
             <div class="form-group row align-items-center justify-content-center">
                 <div class="offset-6 col text-right">
-                    <button type="submit" class="btn" id="button" (click)="submit()" [disabled]="!logoUploaded && orgLogo && enableLoader">Submit</button>
+                    <button type="submit" class="btn" id="button" (click)="submit()"
+                        [disabled]="!logoUploaded && orgLogo && enableLoader">Submit</button>
                 </div>
             </div>
         </ng-container>
         <app-loader *ngIf="enableLoader"></app-loader>
     </form>
 </div>
+<ng-container *ngIf="editOrgDpEnabled" id="profilePicModal">
+    <app-create-logo [uid]="uid" [email]="email" [displayName]="displayName" ></app-create-logo>
+</ng-container>
