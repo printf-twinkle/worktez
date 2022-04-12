@@ -28,6 +28,7 @@ const {deleteLabel} = require("./tark/deleteLabel");
 const {editLabel} = require("./tark/editLabel");
 const {addLabel} = require("./tark/addLabel");
 const {createDefaultLabels} = require("./tark/createDefaultLabels");
+const {addProjLink} = require("./tark/addProjLink");
 
 /**
  * Description
@@ -128,6 +129,17 @@ fastify.post("/addLabel", (req, res) => {
  */
 fastify.post("/getLabelByScope", (req, res) => {
   getLabelByScope(req, res);
+});
+
+/**
+ * Description
+ * @param {any} "/editLabel"
+ * @param {any} req
+ * @param {any} res
+ * @returns {any}
+ */
+fastify.post("/addProjLink", (req, res) => {
+  addProjLink(req, res);
 });
 
 /**

@@ -82,7 +82,7 @@ export class TeamDetailsComponent implements OnInit {
 
   createDefaultLabels() {
     const orgDomain = this.backendService.getOrganizationDomain();
-    const callable = this.functions.httpsCallable('teams/createDefaultLabel');
+    const callable = this.functions.httpsCallable('teams/createDefaultLabels');
     const type: string[] = ["Bug", "Story", "Sub Task"];
     const statusLabels: string[] = ["Ice Box", "Ready to start", "Under Progress", "Blocked", "Completed"];
     const priorityLabels: string[] = ["High", "Medium", "Low"];

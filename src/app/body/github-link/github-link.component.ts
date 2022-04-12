@@ -74,6 +74,7 @@ export class GithubLinkComponent implements OnInit {
   addProjLink(projLink: string) {
     console.log(projLink)
     this.organizationDomain = this.backendService.getOrganizationDomain();
+    console.log("heyyyyyyyyyyyyy")
     const callable = this.functions.httpsCallable('teams/addProjLink');
     callable({OrganizationDomain: this.organizationDomain, TeamName: this.teamName, ProjLink: this.projLink}).subscribe({
       next: (data) => {
