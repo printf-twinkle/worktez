@@ -1,5 +1,5 @@
-/* eslint-disable max-len */
 /* eslint-disable linebreak-style */
+/* eslint-disable max-len */
 
 /** *********************************************************
  * Copyright (C) 2022
@@ -27,6 +27,7 @@ const {getLabelByScope} = require("./tark/getTeamLabels");
 const {deleteLabel} = require("./tark/deleteLabel");
 const {editLabel} = require("./tark/editLabel");
 const {addLabel} = require("./tark/addLabel");
+const {addProjLink} = require("./tark/addProjLink");
 const {createDefaultLabels} = require("./tark/createDefaultLabels");
 
 /**
@@ -96,6 +97,9 @@ fastify.post("/updateTeam", (req, res) => {
   updateTeam(req, res);
 });
 
+fastify.post("/addProjLink", (req, res) => {
+  addProjLink(req, res);
+});
 
 /**
  * Description
