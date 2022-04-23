@@ -30,9 +30,9 @@ const { startSchedular } = require("./tark/startSchedular");
  */
 exports.scheduledFn = functions.https.onRequest((req, res) => {
   cors(req, res, () => {
-    // exports.scheduledFn = functions.pubsub.schedule("1 21 * * *").onRun((context) => {
-    startSchedular();
-    // });
+    exports.scheduledFn = functions.pubsub.schedule("1 21 * * *").onRun((context) => {
+    // startSchedular();
+    });
   });
 });
 
@@ -53,11 +53,11 @@ fastify.post("/addScheduler", (req, res) => {
  * @param {any} res
  * @returns {any}
  */
-exports.scheduledFnManually = functions.https.onRequest((req, res) => {
-  cors(req, res, () => {
-    fastify.ready((err) => {
-      if (err) throw err;
-      requestHandler(req, res);
-    });
-  });
-});
+// exports.scheduledFnManually = functions.https.onRequest((req, res) => {
+//   cors(req, res, () => {
+//     fastify.ready((err) => {
+//       if (err) throw err;
+//       requestHandler(req, res);
+//     });
+//   });
+// });
